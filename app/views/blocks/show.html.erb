@@ -7,6 +7,7 @@
 <ul>
   <% @block.tasks.each do |task| %>
     <li>
+      <%= check_box_tag '', '', task.done, {'data-id' => task.id, 'data-block_id' => task.block_id} %> 
       <%= task.title %>
       <%= link_to "[del]", block_task_path(task.block_id, task.id), method: :delete, data: { confirm: "are you sure?" } %>
     </li>
