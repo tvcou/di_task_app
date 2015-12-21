@@ -11,6 +11,13 @@ class TasksController < ApplicationController
     redirect_to block_path(params[:block_id])
   end
 
+  def toggle
+    render nothing: true
+    @task = Task.find(params[:id])
+    @task.done = !@task.done
+    @task.save
+  end
+
   private def task_params
     params[:task].permit(:title)
   end
