@@ -19,3 +19,11 @@
     <% end %>
   </li>
 </ul>
+
+<script>
+  $(function(){
+    $("input[type=checkbox]").click(function(){
+      $.post('/blocks/'+$(this).data('block_id')+'/tasks/'+$(this).data('id')+'/toggle');
+    });
+  })
+</script>
