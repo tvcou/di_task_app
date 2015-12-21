@@ -5,6 +5,12 @@ class TasksController < ApplicationController
     redirect_to block_path(@block.id)
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to block_path(params[:block_id])
+  end
+
   private def task_params
     params[:task].permit(:title)
   end

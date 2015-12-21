@@ -6,7 +6,10 @@
 
 <ul>
   <% @block.tasks.each do |task| %>
-    <li><%= task.title %></li>
+    <li>
+      <%= task.title %>
+      <%= link_to "[del]", block_task_path(task.block_id, task.id), method: :delete, data: { confirm: "are you sure?" } %>
+    </li>
   <% end %>
   <li>
     <%= form_for [@block, @block.tasks.build]  do |f| %>
